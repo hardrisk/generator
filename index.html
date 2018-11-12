@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Link Generator</title>
+</head>
+<body>
+<script type="text/javascript">
+function update()
+{
+    try
+    {
+        var data = "https://www.google.com.tr"
+            + "/search?q=" + document.getElementById("hash").value
+            + "+" + encodeURIComponent(document.getElementById("name").value)
+            + "+" + encodeURIComponent(document.getElementById("lale").value)
+            + "+" + encodeURIComponent(document.getElementById("can").value)
+            + "b" + encodeURIComponent(document.getElementById("elma").value)
+            + "c"
+            + "d"
+            + "e"
+            + "f"
+            ;
+        document.getElementById("link").href = data;
+        document.getElementById("link_text").value = data;
+    }
+    catch(e)
+    {
+        alert("exception: " + e);
+    }
+}
+</script>
+<div>
+	<form name="form" onsubmit="update(); return false;">
+		<label>hash: <br><input id="hash" size=80></label>
+		(mandatory)
+		<br>
+		<label>name: <br><input id="name" size=80></label>
+		<br>
+        <label>lale: <br><input id="lale" size=80></label>
+		<br>
+        <label>can: <br><input id="can" size=80></label>
+		<br>
+        <label>elma: <br><input id="elma" size=80></label>
+		<br>
+		<input type="submit" value="Generate">
+		<br>
+		<a href="magnet:" id="link">Link</a>: <br><input readonly id="link_text" size=80>
+		<br>
+	</form>
+</div>
+</body>
+</html>
